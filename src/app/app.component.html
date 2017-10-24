@@ -1,25 +1,33 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav class="example-sidenav">
+<mat-sidenav-container class="side-nav-container">
+  <mat-sidenav #sidenav class="left-sidenav">
 		<div class="nav">
-		  <button class="btn btn-common" [routerLink]="['/feedback']" routerLinkActive="active" mat-button>
-		    feedback
-		  </button>
+		  <a class="link" [routerLink]="['/feedback']" routerLinkActive="active">
+		    <i class="material-icons icon">feedback</i>
+		    <span class="title">Feedback</span>
+		  </a>
 
-		  <button class="btn btn-common" [routerLink]="['/question']" routerLinkActive="active" mat-button>
-		    question
-		  </button>
+		  <a class="link" [routerLink]="['/question']" routerLinkActive="active">
+		  	<i class="material-icons icon">question_answer</i>
+		    <span class="title">Question</span>
+		  </a>
 		</div>
   </mat-sidenav>
 
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="sidenav.open()">
-      Open sidenav
-    </button>
-    <router-outlet></router-outlet>
+  <div class="header">
+  	<div class="in left" (click)="sidenav.open()">
+  		<i class="material-icons">menu</i>
+  	</div>
+
+  	<div class="in center">
+  		<div class="title">Header</div>
+  	</div>
+
+  	<div class="in right"></div>
   </div>
 
-  
-
+  <div class="sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
 </mat-sidenav-container>
 
 

@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {  MatButtonModule, 
-          MatSidenavModule } from '@angular/material';
+          MatSidenavModule,
+          MatGridListModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { MainComponent } from './main/main.component';
     MainComponent
   ],
   imports: [   
+    MatGridListModule,
     MatSidenavModule, 
     MatButtonModule,
     BrowserAnimationsModule,
