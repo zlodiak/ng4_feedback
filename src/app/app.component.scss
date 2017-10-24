@@ -3,6 +3,10 @@
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.5);
 
+  .mat-sidenav-content{
+  	overflow: hidden;
+  }
+
 	.header{
 		height: 60px;
 		background: blue;
@@ -42,6 +46,8 @@
 
 	.sidenav-content {
 	  height: calc(100% - 60px);
+	  overflow: hidden;
+	  overflow-y: auto;
 	}
 
 	.left-sidenav {
