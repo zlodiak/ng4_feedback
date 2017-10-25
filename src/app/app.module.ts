@@ -19,7 +19,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MainComponent } from './main/main.component';
 import { GlobalVarsService } from './services/global-vars.service';
 import { SpeakersService } from './services/speakers.service';
-import { InfoDialogComponent } from './info-dialog/info-dialog.component';
+import { AgreeGuardService } from './services/agree-guard.service';
+import { QuestionsService } from './services/questions.service';
+
 
 @NgModule({
   declarations: [
@@ -28,8 +30,7 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
     FeedbackComponent,
     QuestionComponent,
     PageNotFoundComponent,
-    MainComponent,
-    InfoDialogComponent
+    MainComponent
   ],
   imports: [   
     MatSelectModule,
@@ -44,6 +45,8 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
     AppRoutingModule
   ],
   providers: [
+    QuestionsService,
+    AgreeGuardService,
     GlobalVarsService,
     SpeakersService
   ],

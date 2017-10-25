@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
-import { GlobalVarsService } from '../services/global-vars.service';
 
 @Component({
   selector: 'app-main',
@@ -10,20 +8,9 @@ import { GlobalVarsService } from '../services/global-vars.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private globalVarsService: GlobalVarsService,
-  						private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-  	this.checkAgreeState();
   }
-
-  private checkAgreeState() {
-		this.globalVarsService.getAgreeState().subscribe(state => setTimeout(() => {
-		  console.log('subscribe', state);
-		  if(!state) {
-				this.router.navigate(['/agree']);
-		  }
-		})); 
-  };
 
 }

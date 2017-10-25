@@ -6,6 +6,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { QuestionComponent } from './question/question.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainComponent } from './main/main.component';
+import { AgreeGuardService } from './services/agree-guard.service';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
   {
     path: 'question',
     children: [],
+    canActivate: [AgreeGuardService],
     component: QuestionComponent
   },   
   {

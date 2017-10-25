@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
-import { GlobalVarsService } from '../services/global-vars.service';
 import { SpeakersService } from '../services/speakers.service';
+import { QuestionsService } from '../services/questions.service';
 import { Speaker } from '../types/speaker';
+import { Question } from '../types/question';
 
 
 @Component({
@@ -16,24 +16,16 @@ export class QuestionComponent implements OnInit {
   private speakers: Speaker[] = [];
   private selectedSpeakerId: number = undefined;
   private questionText: string = '';
+  private questions: Question[] = [];
 
   constructor(private speakersService: SpeakersService,
-              private globalVarsService: GlobalVarsService,
-  						private router: Router) { }
+              private questionsService: QuestionsService) { }
 
   ngOnInit() {
-    this.checkAgreeState();
   	this.getSpeakers();     
+    this.getQuestions();
+    console.log(this.questions);
   }
-
-  private checkAgreeState() {
-		this.globalVarsService.getAgreeState().subscribe(state => setTimeout(() => {
-		  console.log('subscribe', state);
-		  if(!state) {
-				this.router.navigate(['/agree']);
-		  }
-		})); 
-  };
 
   private getSpeakers(): void {
     this.speakersService.getSpeakers().subscribe(
@@ -47,7 +39,7 @@ export class QuestionComponent implements OnInit {
           speakers.push(speakersRaw[prop]);
         }
 
-        console.log(speakers); 
+        //console.log(speakers); 
         this.speakers = speakers;                                                                                                                           
       }, 
       err => {
@@ -66,7 +58,20 @@ export class QuestionComponent implements OnInit {
       return;
     }
 
+    this.questionsService.setQuestions({
+      "text": "42256yregd",
+      "speakerId": 23,
+      "dateHuman": "223 oct",
+      "dateUnix": "22222"
+    });
+
     alert('ok');
   };
+
+  private getQuestions(): void {
+    this.questionsService.getQuestions().map(question => {
+      this.questions.push(question);
+     });   
+  };   
 
 }

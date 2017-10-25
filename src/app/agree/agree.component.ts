@@ -23,7 +23,7 @@ export class AgreeComponent implements OnInit {
 		this.globalVarsService.getAgreeState().subscribe(data => setTimeout(() => {
 		  //console.log('subscribe', data);
 		  this.isAgreeOk = data;
-		})); 
+		}, 0)); 
   };
 
   private setAgreeState() {
