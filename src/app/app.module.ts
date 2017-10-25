@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import {  MatButtonModule, 
           MatSidenavModule,
-          MatGridListModule } from '@angular/material';
+          MatGridListModule,
+          MatCheckboxModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { QuestionComponent } from './question/question.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainComponent } from './main/main.component';
+import { GlobalVarsService } from './services/global-vars.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { MainComponent } from './main/main.component';
     MainComponent
   ],
   imports: [   
+    FormsModule,
+    MatCheckboxModule,
     MatGridListModule,
     MatSidenavModule, 
     MatButtonModule,
@@ -31,7 +36,9 @@ import { MainComponent } from './main/main.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    GlobalVarsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

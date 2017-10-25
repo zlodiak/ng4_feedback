@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GlobalVarsService } from '../services/global-vars.service';
+
 @Component({
   selector: 'app-agree',
   templateUrl: './agree.component.html',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgreeComponent implements OnInit {
 
-  constructor() { }
+	private isAgreeOk: boolean;
+
+  constructor(private globalVarsService: GlobalVarsService) { }
 
   ngOnInit() {
+  	this.getAgreeState();
   }
+
+  private getAgreeState() {
+		this.globalVarsService.getAgreeState().subscribe(data => setTimeout(() => {
+		  console.log('subscribe', data);
+		  this.isAgreeOk = data;
+		}, 0)); 
+  };
+
+  private checkAgreeState() {
+  	if(this.isAgreeOk) {
+  		this.globalVarsService.setAgreeState(true);
+  	}
+  };
 
 }
