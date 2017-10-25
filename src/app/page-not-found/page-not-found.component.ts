@@ -14,6 +14,7 @@ export class PageNotFoundComponent implements OnInit {
   						private router: Router) { }
 
   ngOnInit() {
+    this.checkAgreeState();
   }
 
   private checkAgreeState() {
