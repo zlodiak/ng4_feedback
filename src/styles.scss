@@ -1,5 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+textarea:focus, input:focus, a:focus{
+    outline: none;
+}
+
 .bg-primary{
 	background: blue;
 }

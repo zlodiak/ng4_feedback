@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { GlobalVarsService } from '../services/global-vars.service';
 
@@ -11,7 +12,8 @@ export class AgreeComponent implements OnInit {
 
 	private isAgreeOk: boolean;
 
-  constructor(private globalVarsService: GlobalVarsService) { }
+  constructor(private globalVarsService: GlobalVarsService,
+  						private router: Router) { }
 
   ngOnInit() {
   	this.getAgreeState();
@@ -19,15 +21,15 @@ export class AgreeComponent implements OnInit {
 
   private getAgreeState() {
 		this.globalVarsService.getAgreeState().subscribe(data => setTimeout(() => {
-		  console.log('subscribe', data);
+		  //console.log('subscribe', data);
 		  this.isAgreeOk = data;
-		}, 0)); 
+		})); 
   };
 
-  private checkAgreeState() {
+  private setAgreeState() {
   	if(this.isAgreeOk) {
   		this.globalVarsService.setAgreeState(true);
+  		this.router.navigate(['/main']); 		
   	}
   };
-
 }

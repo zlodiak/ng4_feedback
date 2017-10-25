@@ -9,16 +9,15 @@ export class GlobalVarsService {
 
 	private isAgreeOk = new BehaviorSubject(false);
 
-  constructor() { }
+  constructor() { };
 
   getAgreeState(): Observable<boolean> {
-    console.log('this.isAgreeOk', this.isAgreeOk);
+    //console.log('this.isAgreeOk', this.isAgreeOk);
   	return this.isAgreeOk;
   };  
 
   setAgreeState(state): void {
-    console.log('set isAgreeOk', state);
-    this.isAgreeOk.next(state);
+    //console.log('set isAgreeOk', state);
+    this.isAgreeOk.next(state);    
   };   
-
 }

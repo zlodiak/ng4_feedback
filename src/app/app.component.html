@@ -1,6 +1,11 @@
 <mat-sidenav-container class="side-nav-container">
   <mat-sidenav #sidenav class="left-sidenav">
 		<div class="nav">
+      <a class="link" [routerLink]="['/main']" routerLinkActive="active">
+        <i class="material-icons">change_history</i>
+        <span class="title">Начало</span>
+      </a> 
+
 		  <a class="link" [routerLink]="['/feedback']" routerLinkActive="active">
 		    <i class="material-icons icon">feedback</i>
 		    <span class="title">Feedback</span>
@@ -9,12 +14,7 @@
       <a class="link" [routerLink]="['/question']" routerLinkActive="active">
         <i class="material-icons icon">question_answer</i>
         <span class="title">Question</span>
-      </a>
-
-      <a class="link" [routerLink]="['/agree']" routerLinkActive="active">
-        <i class="material-icons icon">question_answer</i>
-        <span class="title">agree</span>
-      </a>      
+      </a>     
 		</div>
   </mat-sidenav>
 
