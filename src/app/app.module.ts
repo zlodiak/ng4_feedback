@@ -2,11 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import {  MatButtonModule, 
           MatSidenavModule,
           MatGridListModule,
-          MatCheckboxModule } from '@angular/material';
+          MatCheckboxModule,
+          MatSelectModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,8 @@ import { QuestionComponent } from './question/question.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainComponent } from './main/main.component';
 import { GlobalVarsService } from './services/global-vars.service';
+import { SpeakersService } from './services/speakers.service';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +28,12 @@ import { GlobalVarsService } from './services/global-vars.service';
     FeedbackComponent,
     QuestionComponent,
     PageNotFoundComponent,
-    MainComponent
+    MainComponent,
+    InfoDialogComponent
   ],
   imports: [   
+    MatSelectModule,
+    HttpModule,
     FormsModule,
     MatCheckboxModule,
     MatGridListModule,
@@ -37,7 +44,8 @@ import { GlobalVarsService } from './services/global-vars.service';
     AppRoutingModule
   ],
   providers: [
-    GlobalVarsService
+    GlobalVarsService,
+    SpeakersService
   ],
   bootstrap: [AppComponent]
 })

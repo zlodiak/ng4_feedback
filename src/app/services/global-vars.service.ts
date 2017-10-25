@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class GlobalVarsService {
 
-	private isAgreeOk = new BehaviorSubject(false);
+	private isAgreeOk = new BehaviorSubject(true);
 
   constructor() { };
 

@@ -1,6 +1,6 @@
 <mat-sidenav-container class="side-nav-container">
   <mat-sidenav #sidenav class="left-sidenav">
-		<div class="nav">
+		<div class="nav" (click)="closeSidenav(sidenav)">
       <a class="link" [routerLink]="['/main']" routerLinkActive="active">
         <i class="material-icons">change_history</i>
         <span class="title">Начало</span>

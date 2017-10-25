@@ -1,3 +1,5 @@
+@import "~variables.scss";
+
 .side-nav-container {
   width: 100%;
   height: 100%;
@@ -9,7 +11,7 @@
 
 	.header{
 		height: 60px;
-		background: blue;
+		background: $basic-color;
 		display: flex;
 		flex-wrap: nowrap;
 		justify-content: center;

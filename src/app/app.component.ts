@@ -14,5 +14,8 @@ export class AppComponent {
 
 	constructor(private globalVarsService: GlobalVarsService) { }; 	
 
+	private closeSidenav(sidenav) {
+		sidenav.close();
+	};
 
 }
