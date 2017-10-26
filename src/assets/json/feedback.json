@@ -1,0 +1,87 @@
+{
+    "order": ["order", "mandatory", "title", "answers", "comment", "answers_type"],
+    "reference": "feedback",
+    "title": "обратная связь",
+    "type": "files",
+    "headers": {
+        "order": {
+            "title": "Порядок",
+            "type": "text",
+            "mandatory": false
+        },
+        "mandatory": {
+            "title": "Обязательно для заполнения",
+            "type": "list",
+            "options": ["да", ""],
+            "mandatory": false
+        },
+        "title": {
+            "title": "Заголовок",
+            "type": "text",
+            "mandatory": false
+        },
+        "answers": {
+            "title": "Варианты ответов",
+            "type": "array",
+            "mandatory": false
+        },
+        "comment": {
+            "title": "Комментарий (нужен или нет)",
+            "type": "list",
+            "options": ["нужен"],
+            "mandatory": false
+        },
+        "answers_type": {
+            "title": "Вид блока ответа",
+            "type": "list",
+            "options": ["Чекбоксы (выбор нескольких вариантов)", "Радиобаттоны(выбор одного из нескольких)", "Выпадающий список (выбор одного из нескольких)", "Текстовое поле ввода (поле вариантов ответа игнорируется)", "Слайдер"],
+            "mandatory": false
+        }
+    },
+    "values": {
+        "07dff814-5fa6-4e3e-a9c8-c4c552c2d051": {
+            "order": "5",
+            "mandatory": "0",
+            "title": "Как в целом вы оцениваете мероприятие? (от 1 до 5 баллов, где 1 - низшая оценка, а 5 - высшая)",
+            "answers": ["1", "2", "3", "4", "5"],
+            "comment": "0",
+            "answers_type": "1"
+        },
+        "07dff814-5fa6-4e3e-a9c8-c4c552c2d033": {
+            "order": "35",
+            "mandatory": "0",
+            "title": "Как в целом вы оцениваете викторину? (от 1 до 5 баллов, где 1 - низшая оценка, а 5 - высшая)",
+            "answers": ["1", "2", "3", "4", "5"],
+            "comment": "0",
+            "answers_type": "1"
+        },        
+        "73be82c4-6611-4f7d-95d9-3d586e41b27b": {
+            "order": "10",
+            "mandatory": "0",
+            "title": "Что вам понравилось больше всего  на мероприятии?",
+            "answers_type": "3",
+            "answers": []
+        },
+        "bbaf8687-e1be-4d3f-a5ce-b80ffe280e62": {
+            "order": "20",
+            "mandatory": "0",
+            "title": "В каких активностях вы принимали участие?",
+            "answers_type": "3",
+            "answers": []
+        },
+        "1d87a46c-f01e-40e4-8311-0cdabaa6f1b8": {
+            "order": "30",
+            "mandatory": "0",
+            "title": "Что и как можно усилить: ваши рекомендации?",
+            "answers_type": "3",
+            "answers": []
+        },
+        "50261331-a9aa-4e3d-ac59-4ad3b022d675": {
+            "order": "40",
+            "mandatory": "0",
+            "title": "Какие темы вам были бы интересны для обсуждения в будущем?",
+            "answers_type": "3",
+            "answers": []
+        }
+    }
+}

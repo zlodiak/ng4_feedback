@@ -4,15 +4,13 @@ import { Http } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
-
 @Injectable()
-export class SpeakersService {
+export class FeedbackService {
 
   constructor(private http: Http) { };
 
-  getSpeakers(): Observable<any> {
-  	let result = this.http.get('../assets/json/speakers.json');
-  	return result;
-  };    
+  getQuestions(): Observable<any> {
+  	return this.http.get('../assets/json/feedback.json');
+  };  
 
 }

@@ -1,78 +1,25 @@
 <div class="page-inner">
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
-	<p>
-	  feedback works!
-	</p>
+	<div class="intro-area">
+		<div class="intro">
+			Спасибо за ваши отзывы. Они для нас очень важны.
+		</div>
+	</div>
 
+	<mat-card class="line" *ngFor="let q of questions | orderBy: 'order': false; let i = index">
+		<div class="title">{{ q.title }}</div>
+
+		<div class="answer-area">
+			<textarea class="textarea" *ngIf="q.answers_type == 3" [(ngModel)]="answers[i]"></textarea>
+
+			<mat-radio-group class="radio-group" [(ngModel)]="answers[i]" *ngIf="q.answers_type == 1">
+			  <mat-radio-button class="radio-button" *ngFor="let answer of q.answers" [value]="answer">
+			    {{ answer }}
+			  </mat-radio-button>
+			</mat-radio-group>
+		</div>	  
+	</mat-card>
+
+	<div class="submit-area">
+		<button class="btn btn-common" mat-button>Отправить</button>
+	</div>		
 </div>
