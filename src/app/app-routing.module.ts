@@ -6,7 +6,11 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { QuestionComponent } from './question/question.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainComponent } from './main/main.component';
+import { AuthComponent } from './auth/auth.component';
+
+import { AuthGuardService } from './services/auth-guard.service';
 import { AgreeGuardService } from './services/agree-guard.service';
+
 
 const routes: Routes = [
   {
@@ -17,6 +21,7 @@ const routes: Routes = [
   {
     path: 'main',
     children: [],
+    canActivate: [AgreeGuardService, AuthGuardService],
     component: MainComponent
   }, 
   {
@@ -25,16 +30,23 @@ const routes: Routes = [
     component: AgreeComponent
   },   
   {
+    path: 'auth',
+    children: [],
+    canActivate: [AgreeGuardService],
+    component: AuthComponent
+  },   
+  {
     path: 'feedback',
     children: [],
+    canActivate: [AgreeGuardService, AuthGuardService],
     component: FeedbackComponent
   }, 
   {
     path: 'question',
     children: [],
-    canActivate: [AgreeGuardService],
+    canActivate: [AgreeGuardService, AuthGuardService],
     component: QuestionComponent
-  },   
+  },     
   {
   	path: '**', 
   	component: PageNotFoundComponent

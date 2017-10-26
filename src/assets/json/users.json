@@ -1,0 +1,44 @@
+[
+	{
+		"login": "user1",
+		"password": "qwerty1",
+		"fname": "ivan1",
+		"lname": "ivanov1"
+	},
+	{
+		"login": "user2",
+		"password": "qwerty2",
+		"fname": "ivan2",
+		"lname": "ivanov2"
+	},
+	{
+		"login": "user3",
+		"password": "qwerty3",
+		"fname": "ivan3",
+		"lname": "ivanov3"
+	},
+	{
+		"login": "user4",
+		"password": "qwerty4",
+		"fname": "ivan4",
+		"lname": "ivanov4"
+	},
+	{
+		"login": "user5",
+		"password": "qwerty5",
+		"fname": "ivan5",
+		"lname": "ivanov5"
+	},
+	{
+		"login": "user6",
+		"password": "qwerty6",
+		"fname": "ivan6",
+		"lname": "ivanov6"
+	},
+	{
+		"login": "user7",
+		"password": "qwerty7",
+		"fname": "ivan7",
+		"lname": "ivanov7"
+	}						
+]

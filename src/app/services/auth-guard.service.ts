@@ -4,18 +4,17 @@ import { Router, CanActivate } from '@angular/router';
 
 import { GlobalVarsService } from '../services/global-vars.service';
 
-
 @Injectable()
-export class AgreeGuardService implements CanActivate {
+export class AuthGuardService {
 
   constructor(private router: Router,
   						private globalVarsService: GlobalVarsService) { };
 
   canActivate() {
-    this.globalVarsService.getAgreeState().subscribe(
+    this.globalVarsService.getAuthState().subscribe(
     state => {
       if(!state) {
-		    this.router.navigate(['/agree']);
+		    this.router.navigate(['/auth']);
 		    return false;
       } else {
       	return true;
@@ -23,10 +22,6 @@ export class AgreeGuardService implements CanActivate {
     }); 
 
     return true;
-  }  
+  } 
 
 }
-
-
-
-

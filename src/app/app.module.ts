@@ -20,7 +20,11 @@ import { MainComponent } from './main/main.component';
 import { GlobalVarsService } from './services/global-vars.service';
 import { SpeakersService } from './services/speakers.service';
 import { AgreeGuardService } from './services/agree-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
 import { QuestionsService } from './services/questions.service';
+import { DateService } from './services/date.service';
+import { AuthService } from './services/auth.service';
+import { AuthComponent } from './auth/auth.component';
 
 
 @NgModule({
@@ -30,7 +34,8 @@ import { QuestionsService } from './services/questions.service';
     FeedbackComponent,
     QuestionComponent,
     PageNotFoundComponent,
-    MainComponent
+    MainComponent,
+    AuthComponent
   ],
   imports: [   
     MatSelectModule,
@@ -45,6 +50,9 @@ import { QuestionsService } from './services/questions.service';
     AppRoutingModule
   ],
   providers: [
+    AuthGuardService,
+    AuthService,
+    DateService,
     QuestionsService,
     AgreeGuardService,
     GlobalVarsService,

@@ -4,6 +4,7 @@ import { SpeakersService } from '../services/speakers.service';
 import { QuestionsService } from '../services/questions.service';
 import { Speaker } from '../types/speaker';
 import { Question } from '../types/question';
+import { DateService } from '../services/date.service';
 
 
 @Component({
@@ -19,12 +20,13 @@ export class QuestionComponent implements OnInit {
   private questions: Question[] = [];
 
   constructor(private speakersService: SpeakersService,
-              private questionsService: QuestionsService) { }
+              private questionsService: QuestionsService,
+              private dateService: DateService) { }
 
   ngOnInit() {
   	this.getSpeakers();     
     this.getQuestions();
-    console.log(this.questions);
+    //console.log(this.questions);
   }
 
   private getSpeakers(): void {
@@ -58,16 +60,11 @@ export class QuestionComponent implements OnInit {
       return;
     }
 
-    let d = new Date();
-    d.setHours(d.getHours() + 3);
-    let dateHuman = d.toISOString();
-    let unix_time_stamp = Math.floor(d.getTime() / 1000) - (60 * 60 * 3);
-
     this.questionsService.setQuestions({
       "text": this.questionText,
       "speakerId": this.selectedSpeakerId,
-      "dateHuman": dateHuman,
-      "dateUnix": unix_time_stamp
+      "dateHuman": this.dateService.getNowDate()['dateHuman'],
+      "dateUnix": this.dateService.getNowDate()['unixTimeStamp']
     });
 
     alert('ok');

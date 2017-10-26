@@ -7,17 +7,25 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class GlobalVarsService {
 
-	private isAgreeOk = new BehaviorSubject(true);
+  private isAgreeOk = new BehaviorSubject(false);
+	private isAuthOk = new BehaviorSubject(false);
 
   constructor() { };
 
   getAgreeState(): Observable<boolean> {
-    //console.log('this.isAgreeOk', this.isAgreeOk);
   	return this.isAgreeOk;
   };  
 
   setAgreeState(state): void {
-    //console.log('set isAgreeOk', state);
     this.isAgreeOk.next(state);    
-  };   
+  }; 
+
+  getAuthState(): Observable<boolean> {
+    return this.isAuthOk;
+  };  
+
+  setAuthState(state): void {
+    this.isAuthOk.next(state);    
+  }; 
+
 }
