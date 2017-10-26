@@ -17,6 +17,7 @@ export class AgreeComponent implements OnInit {
 
   ngOnInit() {
   	this.getAgreeState();
+    this.globalVarsService.headerTitle = 'Добро пожаловать';
   }
 
   private getAgreeState() {

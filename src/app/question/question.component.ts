@@ -5,6 +5,7 @@ import { QuestionsService } from '../services/questions.service';
 import { Speaker } from '../types/speaker';
 import { Question } from '../types/question';
 import { DateService } from '../services/date.service';
+import { GlobalVarsService } from '../services/global-vars.service';
 
 
 @Component({
@@ -21,12 +22,13 @@ export class QuestionComponent implements OnInit {
 
   constructor(private speakersService: SpeakersService,
               private questionsService: QuestionsService,
-              private dateService: DateService) { }
+              private dateService: DateService,
+              private globalVarsService: GlobalVarsService) { }
 
   ngOnInit() {
   	this.getSpeakers();     
     this.getQuestions();
-    //console.log(this.questions);
+    this.globalVarsService.headerTitle = 'Задать вопрос';
   }
 
   private getSpeakers(): void {
@@ -66,6 +68,9 @@ export class QuestionComponent implements OnInit {
       "dateHuman": this.dateService.getNowDate()['dateHuman'],
       "dateUnix": this.dateService.getNowDate()['unixTimeStamp']
     });
+
+    this.selectedSpeakerId = undefined;
+    this.questionText = undefined;
 
     alert('ok');
   };

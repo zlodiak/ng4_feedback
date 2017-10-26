@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GlobalVarsService } from '../services/global-vars.service';
+
 
 @Component({
   selector: 'app-feedback',
@@ -8,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  constructor(private globalVarsService: GlobalVarsService) { }
 
   ngOnInit() {
+  	this.globalVarsService.headerTitle = 'Отправить отзыв';
   };
 
 }

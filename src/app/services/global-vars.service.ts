@@ -7,8 +7,9 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class GlobalVarsService {
 
-  private isAgreeOk = new BehaviorSubject(false);
-	private isAuthOk = new BehaviorSubject(false);
+  private isAgreeOk = new BehaviorSubject(true);
+	private isAuthOk = new BehaviorSubject(true);
+  private headerTitle_: string = 'Добро пожаловать';
 
   constructor() { };
 
@@ -27,5 +28,13 @@ export class GlobalVarsService {
   setAuthState(state): void {
     this.isAuthOk.next(state);    
   }; 
+
+  get headerTitle() {
+    return this.headerTitle_;
+  }
+
+  set headerTitle(title) {
+    this.headerTitle_ = title;
+  }  
 
 }

@@ -1,5 +1,5 @@
 <mat-sidenav-container class="side-nav-container">
-  <mat-sidenav #sidenav class="left-sidenav">
+  <mat-sidenav #sidenav class="left-sidenav" mode="push">
 		<div class="nav" (click)="closeSidenav(sidenav)">
       <a class="link" [routerLink]="['/main']" routerLinkActive="active">
         <i class="material-icons">change_history</i>
@@ -8,18 +8,13 @@
 
 		  <a class="link" [routerLink]="['/feedback']" routerLinkActive="active">
 		    <i class="material-icons icon">feedback</i>
-		    <span class="title">Feedback</span>
+		    <span class="title">Отправить отзыв</span>
 		  </a>
 
       <a class="link" [routerLink]="['/question']" routerLinkActive="active">
         <i class="material-icons icon">question_answer</i>
-        <span class="title">Question</span>
-      </a> 
-
-      <a class="link" [routerLink]="['/auth']" routerLinkActive="active">
-        <i class="material-icons icon">question_answer</i>
-        <span class="title">Auth</span>
-      </a>           
+        <span class="title">Задать вопрос</span>
+      </a>            
 		</div>
   </mat-sidenav>
 
@@ -29,7 +24,7 @@
   	</div>
 
   	<div class="in center">
-  		<div class="title">Header</div>
+  		<div class="title">{{ headerTitle }}</div>
   	</div>
 
   	<div class="in right"></div>

@@ -23,6 +23,7 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {
   	this.getUsers();
+    this.globalVarsService.headerTitle = 'Авторизация';
   }
 
   private getUsers(): void {
