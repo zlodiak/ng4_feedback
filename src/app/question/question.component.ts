@@ -48,7 +48,7 @@ export class QuestionComponent implements OnInit {
   };   
 
   private sendQuestion(): void {   
-    if(!this.selectedSpeakerId || !this.questionText.trim()) {
+    if(this.selectedSpeakerId === undefined || !this.questionText.trim()) {
       let message = [];
       message[0] = !this.selectedSpeakerId ? 'Выберите спикера. ' : '';
       message[1] = !this.questionText.trim() ? 'Введите текст вопроса' : '';
@@ -58,11 +58,16 @@ export class QuestionComponent implements OnInit {
       return;
     }
 
+    let d = new Date();
+    d.setHours(d.getHours() + 3);
+    let dateHuman = d.toISOString();
+    let unix_time_stamp = Math.floor(d.getTime() / 1000) - (60 * 60 * 3);
+
     this.questionsService.setQuestions({
-      "text": "42256yregd",
-      "speakerId": 23,
-      "dateHuman": "223 oct",
-      "dateUnix": "22222"
+      "text": this.questionText,
+      "speakerId": this.selectedSpeakerId,
+      "dateHuman": dateHuman,
+      "dateUnix": unix_time_stamp
     });
 
     alert('ok');
