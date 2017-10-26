@@ -12,7 +12,6 @@ export class QuestionsService {
   }
 
   getQuestions() {
-  	console.log('qqq');
   	return this.questions;
   };  
 

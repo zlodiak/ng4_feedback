@@ -4,12 +4,15 @@ import { Response, Headers, URLSearchParams } from '@angular/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
+import { User } from '../types/user';
+
 @Injectable()
 export class GlobalVarsService {
 
   private isAgreeOk = new BehaviorSubject(true);
-	private isAuthOk = new BehaviorSubject(true);
+	private isAuthOk = new BehaviorSubject(false);
   private headerTitle_: string = 'Добро пожаловать';
+  private authUser_: User;
 
   constructor() { };
 
@@ -35,6 +38,15 @@ export class GlobalVarsService {
 
   set headerTitle(title) {
     this.headerTitle_ = title;
-  }  
+  } 
+
+  get authUser() {
+    return this.authUser_;
+  }
+
+  set authUser(userObj) {
+    console.log('authUser', userObj);
+    this.authUser_ = userObj;
+  }    
 
 }

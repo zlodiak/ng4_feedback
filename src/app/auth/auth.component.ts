@@ -55,7 +55,8 @@ export class AuthComponent implements OnInit {
     for(var prop in this.users) {
       if (!this.users.hasOwnProperty(prop)) continue;
       if(this.users[prop].login == this.login.trim() && this.users[prop].password == this.password.trim()) {
-	  		this.globalVarsService.setAuthState(true);
+        this.globalVarsService.setAuthState(true);
+	  		this.globalVarsService.authUser = this.users[prop];
 	  		this.router.navigate(['/main']); 
       }
     }

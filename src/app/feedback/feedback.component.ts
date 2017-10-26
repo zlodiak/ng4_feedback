@@ -13,14 +13,26 @@ import { FeedbackQuestion } from '../types/feedback-question';
 export class FeedbackComponent implements OnInit {
 
 	private questions: FeedbackQuestion[] = [];
+  private answer: Object = {};
 	private answers: Object = {};
+  private isVisibleForm: boolean = true;
 
   constructor(private globalVarsService: GlobalVarsService,
   						private feedbackService: FeedbackService) { }
 
   ngOnInit() {
-  	this.getQuestions();
+    this.getQuestions();
+  	this.checkVote();
   	this.globalVarsService.headerTitle = 'Отправить отзыв';
+  };
+
+  private checkVote(): void {
+    let answersObj: Object = localStorage.answers ? JSON.parse(localStorage.answers) : {};
+    let currUserLogin = this.globalVarsService.authUser.login;
+    console.log(answersObj, currUserLogin, answersObj[currUserLogin] ? 1: 0);
+    if(currUserLogin in answersObj) {
+      this.isVisibleForm = false;
+    }
   };
 
   private getQuestions(): void {
@@ -46,5 +58,29 @@ export class FeedbackComponent implements OnInit {
         console.log('err')         
       });    
   };   
+
+  private sendAnswers(): void {
+  	//console.log(this.answer);
+    let answersCnt = Object.keys(this.answer);
+
+    if(!answersCnt.length) {
+      alert('Необходимо сделать выбор');
+      return;
+    }
+
+    answersCnt.forEach((key) => {
+      console.log(key, this.answer[key]);
+      this.answers[key] = this.answer[key];
+    });
+
+    //console.log(this.answers);
+
+    this.feedbackService.setAnswers(this.answers, this.globalVarsService.authUser.login);
+    
+    this.answer = {};
+    this.isVisibleForm = false;
+
+    alert('Спасибо. Ваш отзыв отправлен.');
+  };
 
 }
