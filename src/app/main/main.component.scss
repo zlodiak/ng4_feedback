@@ -13,6 +13,18 @@
 		align-items: center;
 	  flex-direction: column;	  
 
+	  .enter-as{
+	  	min-width: 200px;
+	  	margin: 0 auto 20px;
+	  	display: inline-block;
+	  	text-align: center;
+
+	  	.name{
+	  		margin-right: 6px;
+	  		font-weight: bold;
+	  	}
+	  }
+
 	  .btn{
 	  	min-width: 200px;
 	  	margin: 0 auto 20px;

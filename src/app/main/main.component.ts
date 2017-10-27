@@ -10,10 +10,15 @@ import { GlobalVarsService } from '../services/global-vars.service';
 })
 export class MainComponent implements OnInit {
 
+	private fname: string = '';
+	private lname: string = '';
+
   constructor(private globalVarsService: GlobalVarsService) { }
 
   ngOnInit() {
   	this.globalVarsService.headerTitle = 'Начало';
+  	this.fname = this.globalVarsService.authUser.fname;
+  	this.lname = this.globalVarsService.authUser.lname;
   }
 
 }

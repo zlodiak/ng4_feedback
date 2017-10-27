@@ -9,15 +9,22 @@ import { User } from '../types/user';
 @Injectable()
 export class GlobalVarsService {
 
-  private isAgreeOk = true;
+  private isAgreeOk = false;
   private headerTitle_: string = 'Добро пожаловать';
   private authUser_: User = {
+    isAdmin: false,
+    login: '',
+    password: '',
+    fname: '',
+    lname: ''      
+  };  
+  /*private authUser_: User = {
     isAdmin: true,
     login: '1',
     password: '1',
-    fname: '',
-    lname: ''      
-  };
+    fname: 'Ivan',
+    lname: 'Ivanov'      
+  };*/
 
   constructor() { };
 

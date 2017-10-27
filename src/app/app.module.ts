@@ -27,6 +27,7 @@ import { AdminQuestionComponent } from './admin-question/admin-question.componen
 
 import { GlobalVarsService } from './services/global-vars.service';
 import { SpeakersService } from './services/speakers.service';
+import { AdminGuardService } from './services/admin-guard.service';
 import { AgreeGuardService } from './services/agree-guard.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { QuestionsService } from './services/questions.service';
@@ -64,6 +65,7 @@ import { FeedbackService } from './services/feedback.service';
     AppRoutingModule
   ],
   providers: [
+    AdminGuardService,
     FeedbackService,
     AuthGuardService,
     AuthService,

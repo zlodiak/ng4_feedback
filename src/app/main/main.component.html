@@ -1,5 +1,11 @@
 <div class="page-inner">
 	<div class="nav">
+		<div class="enter-as">
+			<div class="label">Вы вошли как: </div>
+			<span class="name fname">{{ fname }}</span>
+			<span class="name lname">{{ lname }}</span>
+		</div>
+
 	  <button class="btn btn-common" [routerLink]="['/feedback']" routerLinkActive="active" mat-button>
 	    Отправить отзыв
 	  </button>

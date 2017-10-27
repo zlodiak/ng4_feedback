@@ -12,6 +12,7 @@ import { AdminQuestionComponent } from './admin-question/admin-question.componen
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { AgreeGuardService } from './services/agree-guard.service';
+import { AdminGuardService } from './services/admin-guard.service';
 
 
 const routes: Routes = [
@@ -52,13 +53,13 @@ const routes: Routes = [
   {
     path: 'admin-feedback',
     children: [],
-    canActivate: [AgreeGuardService, AuthGuardService],
+    canActivate: [AgreeGuardService, AuthGuardService, AdminGuardService],
     component: AdminFeedbackComponent
   }, 
   {
     path: 'admin-question',
     children: [],
-    canActivate: [AgreeGuardService, AuthGuardService],
+    canActivate: [AgreeGuardService, AuthGuardService, AdminGuardService],
     component: AdminQuestionComponent
   },       
   {
