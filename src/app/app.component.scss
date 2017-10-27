@@ -18,7 +18,7 @@
 		background: $basic-color;
 		display: flex;
 		flex-wrap: nowrap;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;		
 
 		.in{
@@ -41,6 +41,10 @@
 				.title{
 					padding: 10px 0;
 					overflow: hidden;
+
+					&.offset{
+						padding-left: 10px;
+					}
 				}
 			}
 

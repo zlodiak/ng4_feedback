@@ -1,47 +1,55 @@
 [
 	{
+		"isAdmin": true,
 		"login": "1",
 		"password": "1",
 		"fname": "ivan",
 		"lname": "ivanov"
 	},	
 	{
+		"isAdmin": false,
 		"login": "user1",
 		"password": "qwerty1",
 		"fname": "ivan1",
 		"lname": "ivanov1"
 	},
 	{
+		"isAdmin": true,
 		"login": "user2",
 		"password": "qwerty2",
 		"fname": "ivan2",
 		"lname": "ivanov2"
 	},
 	{
+		"isAdmin": false,
 		"login": "user3",
 		"password": "qwerty3",
 		"fname": "ivan3",
 		"lname": "ivanov3"
 	},
 	{
+		"isAdmin": true,
 		"login": "user4",
 		"password": "qwerty4",
 		"fname": "ivan4",
 		"lname": "ivanov4"
 	},
 	{
+		"isAdmin": false,
 		"login": "user5",
 		"password": "qwerty5",
 		"fname": "ivan5",
 		"lname": "ivanov5"
 	},
 	{
+		"isAdmin": false,
 		"login": "user6",
 		"password": "qwerty6",
 		"fname": "ivan6",
 		"lname": "ivanov6"
 	},
 	{
+		"isAdmin": false,
 		"login": "user7",
 		"password": "qwerty7",
 		"fname": "ivan7",

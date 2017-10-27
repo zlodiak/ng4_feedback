@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, DoCheck } from '@angular/core';
 
 import { Router } from '@angular/router';
 
@@ -11,33 +11,39 @@ import { Config } from './config';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
 
+	private isAuthOk: boolean;
 	private isAgreeOk: boolean;
 	private headerTitle: string;
 	private author: string;
 	private createdDate: string;
+	private isAdmin: boolean = false;
 
 	constructor(private globalVarsService: GlobalVarsService,
 							private router: Router) 
 	{ 
 		this.author = Config.author;
-		this.createdDate = Config.createdDate;
+		this.createdDate = Config.createdDate;		
 	}; 	
-
-	private closeSidenav(sidenav) {		
-		sidenav.close();
-		//this.headerTitle = this.globalVarsService.headerTitle;
-	};
 
 	ngOnInit() {
 		this.headerTitle = this.globalVarsService.headerTitle;
+
 	};
 
 	ngAfterViewInit() {
 		this.headerTitle = this.globalVarsService.headerTitle;
-	}
+	};
 
+	ngDoCheck() {
+		this.isAdmin = this.globalVarsService.authUser.isAdmin;	
+		this.isAuthOk = this.globalVarsService.authUser.login.length ? true : false;	
+	};
+
+	private closeSidenav(sidenav) {		
+		sidenav.close();
+	};	
 
 	private sidenavOpen(sidenav) {
 		let isAuthUser = this.globalVarsService.authUser;
@@ -49,8 +55,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 	};
 
 	private logout() {
-		console.log('lo');
 		this.globalVarsService.authUser = {
+			isAdmin: false,
 			login: '',
 			password: '',
 			fname: '',

@@ -12,6 +12,7 @@ export class GlobalVarsService {
   private isAgreeOk = false;
   private headerTitle_: string = 'Добро пожаловать';
   private authUser_: User = {
+    isAdmin: false,
     login: '',
     password: '',
     fname: '',
@@ -23,23 +24,22 @@ export class GlobalVarsService {
   get headerTitle() {
     return this.headerTitle_;
   };
-
   set headerTitle(title) {
     this.headerTitle_ = title;
   };
 
+
   get authUser() {
     return this.authUser_;
   };
-
   set authUser(userObj) {
     this.authUser_ = userObj;
   };
 
+
   get agreeState() {
     return this.isAgreeOk;
   };
-
   set agreeState(state) {
     this.isAgreeOk = state;
   };      

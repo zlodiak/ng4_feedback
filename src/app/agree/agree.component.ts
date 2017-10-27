@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { GlobalVarsService } from '../services/global-vars.service';
 
+
 @Component({
   selector: 'app-agree',
   templateUrl: './agree.component.html',

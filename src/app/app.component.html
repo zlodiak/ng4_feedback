@@ -16,10 +16,22 @@
         <span class="title">Задать вопрос</span>
       </a>   
 
+      <a class="link" [routerLink]="['/question']" routerLinkActive="active" *ngIf="isAdmin">
+        <i class="material-icons">remove_red_eye</i>
+        <span class="title">Смотреть отзывы</span>
+      </a>   
+
+      <a class="link" [routerLink]="['/question']" routerLinkActive="active" *ngIf="isAdmin">
+        <i class="material-icons">remove_red_eye</i>
+        <span class="title">Смотреть вопросы</span>
+      </a>               
+
       <a class="link" (click)="logout()" routerLinkActive="active">
         <i class="material-icons">power_settings_new</i>
         <span class="title">Выйти</span>
-      </a>                  
+      </a>     
+
+
 		</div>
 
     <div class="copyrights">
@@ -29,12 +41,12 @@
   </mat-sidenav>
 
   <div class="header">
-  	<div class="in left" (click)="sidenavOpen(sidenav)">
+  	<div class="in left" (click)="sidenavOpen(sidenav)" *ngIf="isAuthOk">
   		<i class="material-icons">menu</i>
   	</div>
 
   	<div class="in center">
-  		<div class="title">{{ headerTitle }}</div>
+  		<div class="title" [ngClass]="{offset: !isAuthOk}">{{ headerTitle }}</div>
   	</div>
 
   	<div class="in right"></div>

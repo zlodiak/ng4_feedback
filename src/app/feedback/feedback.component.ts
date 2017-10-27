@@ -52,7 +52,7 @@ export class FeedbackComponent implements OnInit {
         }
       
         this.questions = questions;                                                                                                                           
-        console.log(this.questions); 
+        //console.log(this.questions); 
       }, 
       err => {
         console.log('err')         
