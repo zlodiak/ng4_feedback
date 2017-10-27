@@ -34,4 +34,25 @@ export class AppComponent implements OnInit, AfterViewInit {
 		this.headerTitle = this.globalVarsService.headerTitle;
 	}
 
+
+	private sidenavOpen(sidenav) {
+		let isAuthUser = this.globalVarsService.authUser;
+		if(isAuthUser) {
+			sidenav.open();
+		} else {
+			alert('Чтобы получить доступ к меню нужно авторизоваться');
+		}
+	};
+
+	private logout() {
+		console.log('lo');
+		this.globalVarsService.authUser = {
+			login: '',
+			password: '',
+			fname: '',
+			lname: ''			
+		};
+		this.globalVarsService.setAuthState(false);
+	}
+
 }

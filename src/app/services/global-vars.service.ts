@@ -45,7 +45,7 @@ export class GlobalVarsService {
   }
 
   set authUser(userObj) {
-    console.log('authUser', userObj);
+    //console.log('authUser', userObj);
     this.authUser_ = userObj;
   }    
 
