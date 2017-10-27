@@ -1,8 +1,12 @@
 <div class="page-inner">
 	<div class="auth-form">
-	  <input class="line" matInput placeholder="Логин" [(ngModel)]="login">
+		<mat-form-field class="line">
+		  <input class="line-inner" matInput placeholder="Логин" [(ngModel)]="login">
+		 </mat-form-field>
 
-	  <input class="line" matInput placeholder="Пароль" [(ngModel)]="password">
+		<mat-form-field class="line">
+		  <input class="line-inner" matInput placeholder="Пароль" [(ngModel)]="password">
+		</mat-form-field>
 
 	  <button class="btn btn-common line" mat-button (click)="authUser()">
 	    Авторизоваться

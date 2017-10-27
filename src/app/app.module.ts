@@ -13,7 +13,8 @@ import {  MatButtonModule,
           MatSelectModule,
           MatCardModule,
           MatRadioModule,
-          MatExpansionModule } from '@angular/material';
+          MatExpansionModule,
+          MatInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AgreeComponent } from './agree/agree.component';
@@ -49,6 +50,7 @@ import { FeedbackService } from './services/feedback.service';
     AdminQuestionComponent
   ],
   imports: [   
+    MatInputModule,
     MatExpansionModule,
     MatRadioModule,
     OrderModule,
