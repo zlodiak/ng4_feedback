@@ -21,15 +21,12 @@ export class AgreeComponent implements OnInit {
   }
 
   private getAgreeState() {
-		this.globalVarsService.getAgreeState().subscribe(data => setTimeout(() => {
-		  //console.log('subscribe', data);
-		  this.isAgreeOk = data;
-		}, 0)); 
+		this.isAgreeOk = this.globalVarsService.agreeState; 
   };
 
-  private setAgreeState() {
+  private submitAgreeState() {
   	if(this.isAgreeOk) {
-  		this.globalVarsService.setAgreeState(true);
+      this.globalVarsService.agreeState = true;
   		this.router.navigate(['/main']); 		
   	}
   };

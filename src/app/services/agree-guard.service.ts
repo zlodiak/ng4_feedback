@@ -12,17 +12,14 @@ export class AgreeGuardService implements CanActivate {
   						private globalVarsService: GlobalVarsService) { };
 
   canActivate() {
-    this.globalVarsService.getAgreeState().subscribe(
-    state => {
-      if(!state) {
-		    this.router.navigate(['/agree']);
-		    return false;
-      } else {
-      	return true;
-      }            
-    }); 
+    let agree = this.globalVarsService.agreeState;
 
-    return true;
+    if(!agree) {
+      this.router.navigate(['/agree']);
+      return false;
+    } else {
+      return true;
+    }
   }  
 
 }

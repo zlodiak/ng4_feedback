@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 import { GlobalVarsService } from './services/global-vars.service';
 import { Config } from './config';
 
@@ -16,7 +18,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 	private author: string;
 	private createdDate: string;
 
-	constructor(private globalVarsService: GlobalVarsService) { 
+	constructor(private globalVarsService: GlobalVarsService,
+							private router: Router) 
+	{ 
 		this.author = Config.author;
 		this.createdDate = Config.createdDate;
 	}; 	
@@ -52,7 +56,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 			fname: '',
 			lname: ''			
 		};
-		this.globalVarsService.setAuthState(false);
+		this.router.navigate(['/auth']);
 	}
 
 }

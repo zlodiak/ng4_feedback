@@ -9,44 +9,39 @@ import { User } from '../types/user';
 @Injectable()
 export class GlobalVarsService {
 
-  private isAgreeOk = new BehaviorSubject(true);
-	private isAuthOk = new BehaviorSubject(false);
+  private isAgreeOk = false;
   private headerTitle_: string = 'Добро пожаловать';
-  private authUser_: User;
+  private authUser_: User = {
+    login: '',
+    password: '',
+    fname: '',
+    lname: ''      
+  };
 
   constructor() { };
 
-  getAgreeState(): Observable<boolean> {
-  	return this.isAgreeOk;
-  };  
-
-  setAgreeState(state): void {
-    this.isAgreeOk.next(state);    
-  }; 
-
-  getAuthState(): Observable<boolean> {
-    return this.isAuthOk;
-  };  
-
-  setAuthState(state): void {
-    this.isAuthOk.next(state);    
-  }; 
-
   get headerTitle() {
     return this.headerTitle_;
-  }
+  };
 
   set headerTitle(title) {
     this.headerTitle_ = title;
-  } 
+  };
 
   get authUser() {
     return this.authUser_;
-  }
+  };
 
   set authUser(userObj) {
-    //console.log('authUser', userObj);
     this.authUser_ = userObj;
-  }    
+  };
+
+  get agreeState() {
+    return this.isAgreeOk;
+  };
+
+  set agreeState(state) {
+    this.isAgreeOk = state;
+  };      
 
 }

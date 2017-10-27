@@ -50,7 +50,7 @@
 
 	<div class="agree-footer">
 		<mat-checkbox [(ngModel)]="isAgreeOk">Подтверждаю</mat-checkbox>
-		<button class="btn btn-common" mat-button (click)="setAgreeState()" [disabled]="!isAgreeOk">Далее</button>
+		<button class="btn btn-common" mat-button (click)="submitAgreeState()" [disabled]="!isAgreeOk">Далее</button>
 	</div>
 </div>
 

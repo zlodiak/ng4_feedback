@@ -11,17 +11,14 @@ export class AuthGuardService {
   						private globalVarsService: GlobalVarsService) { };
 
   canActivate() {
-    this.globalVarsService.getAuthState().subscribe(
-    state => {
-      if(!state) {
-		    this.router.navigate(['/auth']);
-		    return false;
-      } else {
-      	return true;
-      }            
-    }); 
+    let auth = this.globalVarsService.authUser;
 
-    return true;
+    if(!auth.login.length || auth.login === undefined) {
+      this.router.navigate(['/auth']);
+      return false;
+    } else {
+      return true;
+    }
   } 
 
 }
