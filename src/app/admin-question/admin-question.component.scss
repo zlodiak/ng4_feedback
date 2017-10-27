@@ -1,0 +1,44 @@
+.page-inner{
+	
+	.questions-area{
+
+		.question{
+			margin-bottom: 20px;
+			padding: 10px 10px 0;
+
+			&:last-child{
+				margin-bottom: 0px;
+			}
+
+			.line{
+				padding-bottom: 10px;
+
+				&.date{
+
+					&:before{
+						content: 'Дата: ';
+						font-weight: bold;
+					}
+				}
+
+				&.speaker{
+
+					&:before{
+						content: 'Кому: ';
+						font-weight: bold;
+					}
+				}
+
+				&.text{
+
+					&:before{
+						content: 'Вопрос: ';
+						font-weight: bold;
+					}
+				}			
+			}
+
+
+		}
+	}
+}

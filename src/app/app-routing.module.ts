@@ -7,6 +7,8 @@ import { QuestionComponent } from './question/question.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainComponent } from './main/main.component';
 import { AuthComponent } from './auth/auth.component';
+import { AdminFeedbackComponent } from './admin-feedback/admin-feedback.component';
+import { AdminQuestionComponent } from './admin-question/admin-question.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { AgreeGuardService } from './services/agree-guard.service';
@@ -46,7 +48,19 @@ const routes: Routes = [
     children: [],
     canActivate: [AgreeGuardService, AuthGuardService],
     component: QuestionComponent
-  },     
+  },
+  {
+    path: 'admin-feedback',
+    children: [],
+    canActivate: [AgreeGuardService, AuthGuardService],
+    component: AdminFeedbackComponent
+  }, 
+  {
+    path: 'admin-question',
+    children: [],
+    canActivate: [AgreeGuardService, AuthGuardService],
+    component: AdminQuestionComponent
+  },       
   {
   	path: '**', 
   	component: PageNotFoundComponent

@@ -57,8 +57,11 @@ export class AuthComponent implements OnInit {
       if(this.users[prop].login == this.login.trim() && this.users[prop].password == this.password.trim()) {
 	  		this.globalVarsService.authUser = this.users[prop];
 	  		this.router.navigate(['/main']); 
-      }
+        return;
+      } 
     }
+
+    alert('Ошибка авторизации. Нет такого пользователя.');
   }; 
 
 }

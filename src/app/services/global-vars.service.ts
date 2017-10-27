@@ -9,12 +9,12 @@ import { User } from '../types/user';
 @Injectable()
 export class GlobalVarsService {
 
-  private isAgreeOk = false;
+  private isAgreeOk = true;
   private headerTitle_: string = 'Добро пожаловать';
   private authUser_: User = {
-    isAdmin: false,
-    login: '',
-    password: '',
+    isAdmin: true,
+    login: '1',
+    password: '1',
     fname: '',
     lname: ''      
   };

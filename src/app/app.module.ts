@@ -30,6 +30,8 @@ import { QuestionsService } from './services/questions.service';
 import { DateService } from './services/date.service';
 import { AuthService } from './services/auth.service';
 import { FeedbackService } from './services/feedback.service';
+import { AdminFeedbackComponent } from './admin-feedback/admin-feedback.component';
+import { AdminQuestionComponent } from './admin-question/admin-question.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { FeedbackService } from './services/feedback.service';
     QuestionComponent,
     PageNotFoundComponent,
     MainComponent,
-    AuthComponent
+    AuthComponent,
+    AdminFeedbackComponent,
+    AdminQuestionComponent
   ],
   imports: [   
     MatRadioModule,
