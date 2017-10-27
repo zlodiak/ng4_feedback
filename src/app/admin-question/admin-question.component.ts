@@ -31,7 +31,7 @@ export class AdminQuestionComponent implements OnInit {
   	this.questions.forEach(question => {
   		question.dateHuman = this.dateService.fromUnixToHuman(question.dateUnix);
   	});
-  	console.log(this.questions);
+  	//console.log(this.questions);
   };
 
   private getSpeakers(): void {
@@ -43,9 +43,6 @@ export class AdminQuestionComponent implements OnInit {
 
         for(var prop in speakersRaw) {
           if (!speakersRaw.hasOwnProperty(prop)) continue;
-          //console.log(speakersRaw[prop]);
-          //console.log(this.dateService.fromUnixToHuman(speakersRaw[prop].dateUnix));
-          //speakersRaw[prop].dateHuman = this.dateService.fromUnixToHuman(speakersRaw[prop].dateUnix);
           speakers.push(speakersRaw[prop]);
         }
 

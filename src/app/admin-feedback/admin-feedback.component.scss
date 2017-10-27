@@ -1,0 +1,40 @@
+.page-inner{
+	
+	.answer{
+		margin-bottom: 10px;
+
+		.head{
+
+			.name{
+
+			}
+
+			.date{
+
+			}		
+		}
+
+		.inner{
+
+			.line-inner{
+				padding-bottom: 10px;
+
+				&:last-child{
+					padding-bottom: 0;
+				}
+
+				.title{
+					font-weight: bold;
+				}
+
+				.answer{
+
+					&:before{
+						content: 'Ответ: ';
+						font-style: italic;
+					}
+				}
+			}
+		}
+	}
+}
