@@ -1,6 +1,6 @@
 <div class="page-inner">
 	<div class="questions-area" *ngIf="questions.length">
-		<mat-card class="question" *ngFor="let q of questions">
+		<mat-card class="question" *ngFor="let q of questions | orderBy: 'dateUnix': true">
 			<div class="line date">{{ q.dateHuman }}</div>
 			<div class="line speaker">{{ speakers[q.speakerId]?.name }}</div>
 			<div class="line text">{{ q.text }}</div>

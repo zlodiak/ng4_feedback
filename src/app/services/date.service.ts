@@ -19,7 +19,8 @@ export class DateService {
 
   fromUnixToHuman(unixDate): string {
 	  let a = new Date(unixDate * 1000);
-	  let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    //let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	  let months = ['Янв','Фев','Мар','Апр','Май','Июнь','Июль','Авг','Сен','Окт','Роя','Дек'];
 	  let year = a.getFullYear();
 	  let month = months[a.getMonth()];
 	  let date = a.getDate();

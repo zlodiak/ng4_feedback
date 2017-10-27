@@ -4,6 +4,8 @@ import { Question } from '../types/question';
 import { Speaker } from '../types/speaker';
 import { QuestionsService } from '../services/questions.service';
 import { SpeakersService } from '../services/speakers.service';
+import { DateService } from '../services/date.service';
+
 
 @Component({
   selector: 'app-admin-question',
@@ -16,7 +18,8 @@ export class AdminQuestionComponent implements OnInit {
 	private speakers: Speaker[] = [];
 
   constructor(private questionsService: QuestionsService,
-  						private speakersService: SpeakersService) { }
+  						private speakersService: SpeakersService,
+  						private dateService: DateService) { }
 
   ngOnInit() {
   	this.getQuestions();
@@ -25,6 +28,9 @@ export class AdminQuestionComponent implements OnInit {
 
   private getQuestions() {
   	this.questions = this.questionsService.getQuestions();
+  	this.questions.forEach(question => {
+  		question.dateHuman = this.dateService.fromUnixToHuman(question.dateUnix);
+  	});
   	console.log(this.questions);
   };
 
@@ -37,6 +43,9 @@ export class AdminQuestionComponent implements OnInit {
 
         for(var prop in speakersRaw) {
           if (!speakersRaw.hasOwnProperty(prop)) continue;
+          //console.log(speakersRaw[prop]);
+          //console.log(this.dateService.fromUnixToHuman(speakersRaw[prop].dateUnix));
+          //speakersRaw[prop].dateHuman = this.dateService.fromUnixToHuman(speakersRaw[prop].dateUnix);
           speakers.push(speakersRaw[prop]);
         }
 
