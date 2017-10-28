@@ -10,6 +10,7 @@ import { User } from '../types/user';
 export class GlobalVarsService {
 
   private isAgreeOk = false;
+  //private isAgreeOk = true;
   private headerTitle_: string = 'Добро пожаловать';
   private authUser_: User = {
     isAdmin: false,

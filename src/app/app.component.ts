@@ -49,8 +49,6 @@ export class AppComponent implements OnInit {
 		let isAuthUser = this.globalVarsService.authUser;
 		if(isAuthUser) {
 			sidenav.open();
-		} else {
-			alert('Чтобы получить доступ к меню нужно авторизоваться');
 		}
 	};
 

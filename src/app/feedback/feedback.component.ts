@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MatDialog } from '@angular/material';
+
 import { GlobalVarsService } from '../services/global-vars.service';
 import { FeedbackService } from '../services/feedback.service';
 import { FeedbackQuestion } from '../types/feedback-question';
+import { InfoDialogComponent } from '../dialogs/info-dialog/info-dialog.component';
 
 
 @Component({
@@ -18,7 +21,8 @@ export class FeedbackComponent implements OnInit {
   private isVisibleForm: boolean = true;
 
   constructor(private globalVarsService: GlobalVarsService,
-  						private feedbackService: FeedbackService) { }
+  						private feedbackService: FeedbackService,
+              private matDialog: MatDialog) { }
 
   ngOnInit() {
     this.getQuestions();
@@ -64,7 +68,11 @@ export class FeedbackComponent implements OnInit {
     let answersCnt = Object.keys(this.answer);
 
     if(!answersCnt.length) {
-      alert('Необходимо сделать выбор');
+      this.matDialog.open(InfoDialogComponent, {
+        width: '300px',
+        hasBackdrop: true,
+        data: { title: 'Ошибка!', message: 'Необходимо сделать выбор.' }
+      });        
       return;
     }
 
@@ -80,7 +88,11 @@ export class FeedbackComponent implements OnInit {
     this.answer = {};
     this.isVisibleForm = false;
 
-    alert('Спасибо. Ваш отзыв отправлен.');
+    this.matDialog.open(InfoDialogComponent, {
+      width: '300px',
+      hasBackdrop: true,
+      data: { title: 'Спасибо!', message: 'Ваш отзыв отправлен.' }
+    });    
   };
 
 }

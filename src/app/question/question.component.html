@@ -1,19 +1,21 @@
 <div class="page-inner">
-	<div class="speakers">
-		<mat-form-field>
-			<mat-select placeholder="Спикер" [(ngModel)]="selectedSpeakerId">
-			  <mat-option *ngFor="let speaker of speakers" [value]="speaker.id">
-			    {{ speaker.name }}
-			  </mat-option>
-			</mat-select>
-		</mat-form-field>
+	<div class="form">
+		<div class="speakers">
+			<mat-form-field>
+				<mat-select placeholder="Спикер" [(ngModel)]="selectedSpeakerId">
+				  <mat-option *ngFor="let speaker of speakers" [value]="speaker.id">
+				    {{ speaker.name }}
+				  </mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+
+		<textarea class="question-text" placeholder="Текст вопроса" [(ngModel)]="questionText"></textarea>
+
+	  <button class="btn btn-common" mat-button (click)="sendQuestion()">
+	    Отправить
+	  </button>	
 	</div>
-
-	<textarea class="question-text" placeholder="Текст вопроса" [(ngModel)]="questionText"></textarea>
-
-  <button class="btn btn-common" mat-button (click)="sendQuestion()">
-    Отправить
-  </button>	
 </div>
 
 

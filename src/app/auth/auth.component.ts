@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 import { AuthService } from '../services/auth.service';
 import { User } from '../types/user';
 import { GlobalVarsService } from '../services/global-vars.service';
+import { InfoDialogComponent } from '../dialogs/info-dialog/info-dialog.component';
 
 @Component({
   selector: 'app-auth',
@@ -19,7 +21,8 @@ export class AuthComponent implements OnInit {
 
   constructor(private authService: AuthService,
   						private globalVarsService: GlobalVarsService,
-  						private router: Router) { };
+  						private router: Router,
+              private matDialog: MatDialog) { };
 
   ngOnInit() {
   	this.getUsers();
@@ -48,7 +51,11 @@ export class AuthComponent implements OnInit {
 
   private authUser(): void {
   	if(!this.login.trim().length || !this.password.trim().length) { 
-  		alert('Заполните поля');
+      this.matDialog.open(InfoDialogComponent, {
+        width: '300px',
+        hasBackdrop: true,
+        data: { title: 'Ошибка!', message: 'Заполните поля.' }
+      });        
   		return;
   	};
 
@@ -61,7 +68,11 @@ export class AuthComponent implements OnInit {
       } 
     }
 
-    alert('Ошибка авторизации. Нет такого пользователя.');
+    this.matDialog.open(InfoDialogComponent, {
+      width: '300px',
+      hasBackdrop: true,
+      data: { title: 'Ошибка авторизации!', message: 'Нет такого пользователя.' }
+    });    
   }; 
 
 }

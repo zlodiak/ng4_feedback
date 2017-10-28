@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MatDialog } from '@angular/material';
+
 import { SpeakersService } from '../services/speakers.service';
 import { QuestionsService } from '../services/questions.service';
 import { Speaker } from '../types/speaker';
 import { Question } from '../types/question';
 import { DateService } from '../services/date.service';
 import { GlobalVarsService } from '../services/global-vars.service';
+import { InfoDialogComponent } from '../dialogs/info-dialog/info-dialog.component';
 
 
 @Component({
@@ -23,7 +26,8 @@ export class QuestionComponent implements OnInit {
   constructor(private speakersService: SpeakersService,
               private questionsService: QuestionsService,
               private dateService: DateService,
-              private globalVarsService: GlobalVarsService) { }
+              private globalVarsService: GlobalVarsService,
+              private matDialog: MatDialog) { }
 
   ngOnInit() {
   	this.getSpeakers();     
@@ -54,11 +58,18 @@ export class QuestionComponent implements OnInit {
   private sendQuestion(): void {   
     if(this.selectedSpeakerId === undefined || !this.questionText.trim()) {
       let message = [];
+
       message[0] = !this.selectedSpeakerId ? 'Выберите спикера. ' : '';
       message[1] = !this.questionText.trim() ? 'Введите текст вопроса' : '';
 
       message = message[0] + message[1];
-      alert(message);
+
+      this.matDialog.open(InfoDialogComponent, {
+        width: '300px',
+        hasBackdrop: true,
+        data: { title: 'Ошибка!', message: message }
+      });
+
       return;
     }
 
@@ -72,7 +83,11 @@ export class QuestionComponent implements OnInit {
     this.selectedSpeakerId = undefined;
     this.questionText = undefined;
 
-    alert('ok');
+    this.matDialog.open(InfoDialogComponent, {
+      width: '300px',
+      hasBackdrop: true,
+      data: { title: 'Спасибо!', message: 'Ваш вопрос отправлен.' }
+    });
   };
 
   private getQuestions(): void {

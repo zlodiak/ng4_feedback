@@ -14,7 +14,8 @@ import {  MatButtonModule,
           MatCardModule,
           MatRadioModule,
           MatExpansionModule,
-          MatInputModule } from '@angular/material';
+          MatInputModule,
+          MatDialogModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AgreeComponent } from './agree/agree.component';
@@ -25,6 +26,7 @@ import { MainComponent } from './main/main.component';
 import { AuthComponent } from './auth/auth.component';
 import { AdminFeedbackComponent } from './admin-feedback/admin-feedback.component';
 import { AdminQuestionComponent } from './admin-question/admin-question.component';
+import { InfoDialogComponent } from './dialogs/info-dialog/info-dialog.component';
 
 import { GlobalVarsService } from './services/global-vars.service';
 import { SpeakersService } from './services/speakers.service';
@@ -47,9 +49,11 @@ import { FeedbackService } from './services/feedback.service';
     MainComponent,
     AuthComponent,
     AdminFeedbackComponent,
-    AdminQuestionComponent
+    AdminQuestionComponent,
+    InfoDialogComponent
   ],
   imports: [   
+    MatDialogModule,
     MatInputModule,
     MatExpansionModule,
     MatRadioModule,
@@ -77,6 +81,9 @@ import { FeedbackService } from './services/feedback.service';
     GlobalVarsService,
     SpeakersService
   ],
+  entryComponents: [
+    InfoDialogComponent
+  ],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
