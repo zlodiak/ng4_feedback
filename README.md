@@ -2,17 +2,17 @@ live page: https://zlodiak.github.io/ng2/feedback/0/
 
 this is education project, fun coding. instead of the database, localStorage is used.
 
-auth info (login/password):
-ADMINS:
-user2 / qwerty2
-user4 / qwerty4
-
-USERS:
-user1 / qwerty1
-user3 / qwerty3
-user5 / qwerty5
-user6 / qwerty6
-user7 / qwerty7
+auth info (login/password):<br>
+ADMINS:<br>
+user2 / qwerty2<br>
+user4 / qwerty4<br>
+<br><br>
+USERS:<br>
+user1 / qwerty1<br>
+user3 / qwerty3<br>
+user5 / qwerty5<br>
+user6 / qwerty6<br>
+user7 / qwerty7<br>
 
 
 # Feedback
