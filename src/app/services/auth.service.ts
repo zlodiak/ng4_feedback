@@ -4,6 +4,8 @@ import { Http } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
+import { Config } from '../config';
+
 
 @Injectable()
 export class AuthService {
@@ -11,7 +13,7 @@ export class AuthService {
   constructor(private http: Http) { };
 
   getUsers(): Observable<any> {
-  	return this.http.get('../assets/json/users.json');
+  	return this.http.get(Config.host + 'assets/json/users.json');
   };
 
 }

@@ -1,3 +1,20 @@
+live page: https://zlodiak.github.io/ng2/feedback/0/
+
+this is education project, fun coding. instead of the database, localStorage is used.
+
+auth info (login/password):
+ADMINS:
+user2 / qwerty2
+user4 / qwerty4
+
+USERS:
+user1 / qwerty1
+user3 / qwerty3
+user5 / qwerty5
+user6 / qwerty6
+user7 / qwerty7
+
+
 # Feedback
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
