@@ -1,20 +1,26 @@
 <div class="page-inner">
-	<mat-expansion-panel class="answer" *ngFor="let answerKey of answersKeys">
-	  <mat-expansion-panel-header class="head">
-	    <mat-panel-title class="name">
-	      {{ users[answerKey]?.fname }} {{ users[answerKey]?.lname }} 
-	    </mat-panel-title>
-	    <mat-panel-description class="login">
-	      {{ users[answerKey]?.login }} 
-	    </mat-panel-description>
-	  </mat-expansion-panel-header>
-	  
-	  <div class="inner">
-	  		<div class="line-inner" *ngFor="let line of getKeys(answers[answerKey])">
-	  			<div class="title">{{ questions[line]?.title }}</div>
-	  			<div class="answer">{{ answers[answerKey][line] }}</div>
-	  		</div>
+	<div class="answers-area" *ngIf="answersKeys.length">
+		<mat-expansion-panel class="answer" *ngFor="let answerKey of answersKeys">
+		  <mat-expansion-panel-header class="head">
+		    <mat-panel-title class="name">
+		      {{ users[answerKey]?.fname }} {{ users[answerKey]?.lname }} 
+		    </mat-panel-title>
+		    <mat-panel-description class="login">
+		      {{ users[answerKey]?.login }} 
+		    </mat-panel-description>
+		  </mat-expansion-panel-header>
+		  
+		  <div class="inner">
+		  		<div class="line-inner" *ngFor="let line of getKeys(answers[answerKey])">
+		  			<div class="title">{{ questions[line]?.title }}</div>
+		  			<div class="answer">{{ answers[answerKey][line] }}</div>
+		  		</div>
 
-	  </div>
-	</mat-expansion-panel>
+		  </div>
+		</mat-expansion-panel>
+	</div>
+
+	<div class="empty-area" *ngIf="!answersKeys.length">
+		<span>Нет отзывов</span>
+	</div>	
 </div>

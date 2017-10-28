@@ -46,7 +46,7 @@ export class AdminQuestionComponent implements OnInit {
           speakers.push(speakersRaw[prop]);
         }
 
-        console.log(speakers); 
+        //console.log(speakers); 
         this.speakers = speakers;                                                                                                                           
       }, 
       err => {

@@ -1,40 +1,47 @@
 .page-inner{
-	
-	.answer{
-		margin-bottom: 10px;
 
-		.head{
+	.answers-area{
+		
+		.answer{
+			margin-bottom: 10px;
 
-			.name{
+			.head{
 
+				.name{
+
+				}
+
+				.date{
+
+				}		
 			}
 
-			.date{
+			.inner{
 
-			}		
-		}
+				.line-inner{
+					padding-bottom: 10px;
 
-		.inner{
+					&:last-child{
+						padding-bottom: 0;
+					}
 
-			.line-inner{
-				padding-bottom: 10px;
+					.title{
+						font-weight: bold;
+					}
 
-				&:last-child{
-					padding-bottom: 0;
-				}
+					.answer{
 
-				.title{
-					font-weight: bold;
-				}
-
-				.answer{
-
-					&:before{
-						content: 'Ответ: ';
-						font-style: italic;
+						&:before{
+							content: 'Ответ: ';
+							font-style: italic;
+						}
 					}
 				}
 			}
-		}
+		}		
+	}
+	
+	.empty-area{
+		
 	}
 }

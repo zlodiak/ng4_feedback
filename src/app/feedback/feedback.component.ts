@@ -33,7 +33,7 @@ export class FeedbackComponent implements OnInit {
   private checkVote(): void {
     let answersObj: Object = localStorage.answers ? JSON.parse(localStorage.answers) : {};
     let currUserLogin = this.globalVarsService.authUser.login;
-    console.log(answersObj, currUserLogin, answersObj[currUserLogin] ? 1: 0);
+    //console.log(answersObj, currUserLogin, answersObj[currUserLogin] ? 1: 0);
     if(currUserLogin in answersObj) {
       this.isVisibleForm = false;
     }
@@ -77,7 +77,7 @@ export class FeedbackComponent implements OnInit {
     }
 
     answersCnt.forEach((key) => {
-      console.log(key, this.answer[key]);
+      //console.log(key, this.answer[key]);
       this.answers[key] = this.answer[key];
     });
 

@@ -51,7 +51,7 @@ export class AdminFeedbackComponent implements OnInit {
   private getAnswers() {
     this.answers = this.feedbackService.getAnswers();
     this.answersKeys = Object.keys(this.answers);
-    console.log(this.answers, this.answersKeys);
+    //console.log(this.answers, this.answersKeys);
   };
 
   private getQuestions(): void {
@@ -71,7 +71,7 @@ export class AdminFeedbackComponent implements OnInit {
         }
       
         this.questions = questions;                                                                                                                           
-        console.log(this.questions); 
+        //console.log(this.questions); 
       }, 
       err => {
         console.log('err')         

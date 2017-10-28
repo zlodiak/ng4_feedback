@@ -42,7 +42,7 @@ export class AuthComponent implements OnInit {
       }
       
       this.users = users;          
-      console.log(typeof this.users, this.users);                                                                                                                  
+      //console.log(typeof this.users, this.users);                                                                                                                  
     }, 
     err => {
       console.log('err')         
